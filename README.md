@@ -12,6 +12,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+### `yarn lint:code`
+
+Recursively search through all `.js` and `.jsx`, and fix any linting errors that can be fixed by `--fix` flag
+
+### `yarn clean`
+
+Removes node_modules
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
