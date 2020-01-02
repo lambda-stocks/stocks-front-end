@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route, Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
@@ -41,13 +41,17 @@ const AppWrapper = styled.div`
 
 const App = () => {
   const location = useLocation()
+  const [hideNav, setNavVisibility] = useState(false)
+
   return (
     <AppWrapper>
       <GlobalStyles />
+
       <div>
         <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
       </div>
+
       <div className="relative">
         <TransitionGroup>
           <CSSTransition key={location.pathname} timeout={500} classNames="fade">
