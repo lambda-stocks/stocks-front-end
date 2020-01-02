@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
 import GlobalStyles from './components/base'
+import SideNav from './components/SideNav'
 
 const AppWrapper = styled.div`
   .page {
@@ -48,11 +49,11 @@ const App = () => {
       <GlobalStyles />
 
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
+        {/* <Link to="/">Home</Link> */}
+        <SideNav />
       </div>
 
-      <div className="relative">
+      {/* <div className="relative">
         <TransitionGroup>
           <CSSTransition key={location.pathname} timeout={500} classNames="fade">
             <div className="page">
@@ -63,7 +64,7 @@ const App = () => {
             </div>
           </CSSTransition>
         </TransitionGroup>
-      </div>
+      </div> */}
     </AppWrapper>
   )
 }
