@@ -110,7 +110,9 @@ module.exports = {
         "import/prefer-default-export": 0,
         "import/no-cycle": 0,
         "brace-style": 0,
-        "no-unused-vars": 1
+        "no-unused-vars": 1,
+        "react/prop-types": 0,
+        "no-undef": "error"
     },
 };
 
