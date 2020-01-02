@@ -4,6 +4,16 @@ import styled from 'styled-components'
 import { House, Menu, Clock, Union, GearIcon, Account, DoubleChevron } from './icons'
 import NavLinks from './links/NavLinks'
 
+const NavIcons = [
+  { icon: <House />, href: '/' },
+  { icon: <Menu />, href: '/' },
+  { icon: <Clock />, href: '/' },
+  { icon: <Account />, href: '/' },
+  { icon: <Union />, href: '/' },
+  { icon: <GearIcon />, href: '/' },
+  { icon: <DoubleChevron />, href: '/' }
+]
+
 const NavContainer = styled.div`
   position: fixed;
   width: 60px;
@@ -38,30 +48,16 @@ const TopNav = () => {
   return (
     <NavContainer>
       <IconContainer>
-        <NavLinks to="">
-          <House />
-        </NavLinks>
-        <NavLinks to="">
-          <Menu />
-        </NavLinks>
-        <NavLinks to="">
-          <Clock />
-        </NavLinks>
-        <NavLinks to="">
-          <Account />
-        </NavLinks>
-        <NavLinks to="">
-          <Union />
-        </NavLinks>
-        <NavLinks to="">
-          <GearIcon />
-        </NavLinks>
-
-        <hr style={{ width: '38px', marginBottom: '35px' }} />
-
-        <NavLinks to="">
-          <DoubleChevron />
-        </NavLinks>
+        {NavIcons.map(({ icon, href }, index) => (
+          <>
+            <NavLinks to={href} key={href}>
+              {icon}
+            </NavLinks>
+            {NavIcons.length - 2 === index && (
+              <hr style={{ width: '38px', marginBottom: '35px', color: '#fff' }} />
+            )}
+          </>
+        ))}
       </IconContainer>
     </NavContainer>
   )

@@ -7,6 +7,7 @@ import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
 import GlobalStyles from './components/base'
 import SideNav from './components/SideNav'
+import TopNav from './components/top-navigation/TopNav'
 
 const AppWrapper = styled.div`
   .page {
@@ -37,6 +38,8 @@ const AppWrapper = styled.div`
 
   .relative {
     position: relative;
+    margin-top: 60px;
+    margin-left: 60px;
   }
 `
 
@@ -49,11 +52,11 @@ const App = () => {
       <GlobalStyles />
 
       <div>
-        {/* <Link to="/">Home</Link> */}
         <SideNav />
+        <TopNav />
       </div>
 
-      {/* <div className="relative">
+      <div className="relative">
         <TransitionGroup>
           <CSSTransition key={location.pathname} timeout={500} classNames="fade">
             <div className="page">
@@ -64,7 +67,7 @@ const App = () => {
             </div>
           </CSSTransition>
         </TransitionGroup>
-      </div> */}
+      </div>
     </AppWrapper>
   )
 }
