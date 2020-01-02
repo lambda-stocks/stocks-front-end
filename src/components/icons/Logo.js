@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logo = props => {
   return (
-    <svg width={40.032} height={41.953} viewBox="0 0 40.032 41.953" {...props}>
+    <svg height={48} viewBox="0 0 40.032 41.953" {...props}>
       <text
         transform="translate(0 29)"
         fontSize={31}
