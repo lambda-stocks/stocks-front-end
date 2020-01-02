@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
 import GlobalStyles from './components/base'
+import SideNav from './components/SideNav'
 import TopNav from './components/top-navigation/TopNav'
 
 const AppWrapper = styled.div`
@@ -51,6 +52,7 @@ const App = () => {
       <GlobalStyles />
 
       <div>
+        <SideNav />
         <TopNav />
       </div>
 
