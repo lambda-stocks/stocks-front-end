@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
 import GlobalStyles from './components/base'
+import TopNav from './components/top-navigation/TopNav'
 
 const AppWrapper = styled.div`
   .page {
@@ -36,6 +37,8 @@ const AppWrapper = styled.div`
 
   .relative {
     position: relative;
+    margin-top: 60px;
+    margin-left: 60px;
   }
 `
 
@@ -48,8 +51,7 @@ const App = () => {
       <GlobalStyles />
 
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
+        <TopNav />
       </div>
 
       <div className="relative">
