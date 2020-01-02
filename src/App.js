@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Switch, Route, Link, useLocation } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+import Auth from './components/authenication'
 import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
 import GlobalStyles from './components/base'
 import SideNav from './components/SideNav'
 import TopNav from './components/top-navigation/TopNav'
@@ -61,6 +63,7 @@ const App = () => {
           <CSSTransition key={location.pathname} timeout={500} classNames="fade">
             <div className="page">
               <Switch location={location}>
+                <Route path="/login" component={Login} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/" component={IndexPage} />
               </Switch>
@@ -72,4 +75,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Auth(App)

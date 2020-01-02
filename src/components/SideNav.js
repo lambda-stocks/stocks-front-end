@@ -7,7 +7,7 @@ import NavLinks from './links/NavLinks'
 const NavIcons = [
   { icon: <House />, href: '/' },
   { icon: <Menu />, href: '/' },
-  { icon: <Clock />, href: '/' },
+  { icon: <Clock />, href: '/dashboard' },
   { icon: <Account />, href: '/' },
   { icon: <Union />, href: '/' },
   { icon: <GearIcon />, href: '/' },
@@ -44,23 +44,25 @@ const IconContainer = styled.div`
   }
 `
 
-const TopNav = () => {
+const SideNav = () => {
   return (
     <NavContainer>
       <IconContainer>
-        {NavIcons.map(({ icon, href }, index) => (
-          <>
-            <NavLinks to={href} key={href}>
-              {icon}
-            </NavLinks>
-            {NavIcons.length - 2 === index && (
-              <hr style={{ width: '38px', marginBottom: '35px', color: '#fff' }} />
-            )}
-          </>
-        ))}
+        {NavIcons.map(({ icon, href }, index) => {
+          return (
+            <>
+              <NavLinks href={href} key={`${href}${index}`}>
+                {icon}
+              </NavLinks>
+              {NavIcons.length - 2 === index && (
+                <hr style={{ width: '38px', marginBottom: '35px', color: '#fff' }} />
+              )}
+            </>
+          )
+        })}
       </IconContainer>
     </NavContainer>
   )
 }
 
-export default TopNav
+export default SideNav

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Logo = props => {
+const Logo = ({ height }) => {
   return (
-    <svg height={48} viewBox="0 0 40.032 41.953" {...props}>
+    <svg height={height} viewBox="0 0 40.032 41.953">
       <text
         transform="translate(0 29)"
         fontSize={31}
@@ -27,6 +27,10 @@ const Logo = props => {
       </text>
     </svg>
   )
+}
+
+Logo.defalutProps = {
+  height: 48
 }
 
 export default Logo

@@ -13,7 +13,6 @@ const BaseCss = createGlobalStyle`
     font-size: 16px;
     line-height: 30px;
     color: #fff;
-    background-color: #1f1f54;
   }
 `
 
