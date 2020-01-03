@@ -114,8 +114,8 @@ class Login extends Component {
       data
     })
       .then(res => {
-        console.log(res.data)
-        // localStorage.setItem('token', JSON.stringify());
+        localStorage.setItem('token', JSON.stringify(res.data.token))
+        window.location.href = '/'
       })
       .catch(err => console.log(err))
   }
