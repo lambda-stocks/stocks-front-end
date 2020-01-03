@@ -6,6 +6,7 @@ import { PageHeading } from '../components/utilities'
 import { WidgetWrapper, Widget, WidgetHeading } from '../components/widgetUtilities'
 import WatchList from '../components/widgets/WatchList'
 import Chat from '../components/widgets/Chat'
+import News from '../components/widgets/News'
 
 const Chart = styled.div``
 
@@ -36,6 +37,7 @@ const Dashboard = () => (
       <Widget size={3.833} small={true}>
         <Chart>
           <WidgetHeading title="News" />
+          <News />
         </Chart>
       </Widget>
     </WidgetWrapper>
