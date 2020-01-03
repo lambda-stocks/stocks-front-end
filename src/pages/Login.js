@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Row from '../components/layouts/Row'
 import Column from '../components/layouts/Column'
 import { Image } from '../components/utilities'
 import { Logo } from '../components/icons'
+import GlobalStyles from '../components/base'
+import SignUpForm from '../components/forms/SignUp'
+import SignInForm from '../components/forms/SignIn'
+import { FadeIn } from '../components/Animations'
 
 import Hero from '../assets/login-hero.jpg'
 import Hero2x from '../assets/login-hero@2x.jpg'
 
-import GlobalStyles from '../components/base'
-
 const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
+
+  &.animate {
+    animation: ${FadeIn} 0.5s ease-in;
+    animation-fill-mode: backwards;
+  }
 `
 
 const ContentContainer = styled.div`
@@ -28,7 +34,7 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 
   span {
     margin-top: -15px;
@@ -51,60 +57,6 @@ const Thumbnail = styled.span`
   margin-bottom: 25px;
 `
 
-const InfoContainer = styled.div`
-  width: 100%;
-  background-color: #f4f4f4;
-  padding: 40px 0;
-
-  form {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-`
-
-const FormRow = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const FormGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: 100%;
-  margin-bottom: 15px;
-  align-items: center;
-`
-
-const FormInput = styled.input`
-  width: 80%;
-  background-color: transparent;
-  transition: border 0.2s ease-out;
-  border-bottom: 2px solid #000;
-  border-radius: 0.25em;
-  color: #f2f2f2;
-  order: 1;
-  padding: 10px 0;
-  display: block;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-radius: 0;
-
-  &::-webkit-input-placeholder {
-    color: #e95e00;
-    text-transform: uppercase;
-  }
-
-  &:focus {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-`
-
 const HeroContainer = styled.div`
   img {
     min-width: 100%;
@@ -113,47 +65,96 @@ const HeroContainer = styled.div`
   }
 `
 
-const Login = () => {
-  return (
-    <>
-      <GlobalStyles />
-      <LoginContainer>
-        <Column size={6}>
-          <ContentContainer>
-            <LogoContainer>
-              <Logo height={75} />
-              <span>
-                Curious<span>Trader</span>
-              </span>
-            </LogoContainer>
+const AccountLoginButton = styled.div`
+  color: #e95e00;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 12px;
 
-            <Thumbnail>Signup</Thumbnail>
+  &:hover {
+    color: #ef8e4c;
+  }
+`
 
-            <InfoContainer>
-              <form>
-                <FormRow>
-                  <FormGroup>
-                    <FormInput
-                      id="email"
-                      placeholder="Email / Username"
-                      type="email"
-                      name="email"
-                      required
-                    />
-                  </FormGroup>
-                </FormRow>
-              </form>
-            </InfoContainer>
-          </ContentContainer>
-        </Column>
-        <Column size={6}>
-          <HeroContainer>
-            <Image imageArr={[Hero, Hero2x, '']} />
-          </HeroContainer>
-        </Column>
-      </LoginContainer>
-    </>
-  )
+class Login extends Component {
+  state = {
+    switchForm: false,
+    email: '',
+    name: '',
+    password: ''
+  }
+
+  handleInput = ({ target: { value, name } }) => this.setState({ [name]: value })
+
+  onSignUp = e => {
+    e.preventDefault()
+
+    const { email, name, password } = { ...this.state }
+
+    const [firstName, lastName] = name.split(' ')
+  }
+
+  onSignIn = e => {
+    e.preventDefault()
+
+    const { email, password } = { ...this.state }
+    console.log(email)
+  }
+
+  render() {
+    const { switchForm, email, name, password } = this.state
+
+    return (
+      <>
+        <GlobalStyles />
+        <LoginContainer className="animate">
+          <Column size={6}>
+            <ContentContainer>
+              <LogoContainer>
+                <Logo height={75} />
+                <span>
+                  Curious<span>Trader</span>
+                </span>
+              </LogoContainer>
+
+              <Thumbnail>Signup</Thumbnail>
+
+              {!switchForm ? (
+                <SignUpForm
+                  handleInput={this.handleInput}
+                  email={email}
+                  name={name}
+                  password={password}
+                  onSignUp={this.onSignUp}
+                />
+              ) : (
+                <SignInForm
+                  handleInput={this.handleInput}
+                  email={email}
+                  password={password}
+                  onSignIn={this.onSignIn}
+                />
+              )}
+
+              <AccountLoginButton onClick={() => this.setState({ switchForm: !switchForm })}>
+                {!switchForm ? (
+                  <span>Have an account? Login</span>
+                ) : (
+                  <span>Oops! No I don&apos;t, go back</span>
+                )}
+              </AccountLoginButton>
+            </ContentContainer>
+          </Column>
+          <Column size={6}>
+            <HeroContainer>
+              <Image imageArr={[Hero, Hero2x, '']} />
+            </HeroContainer>
+          </Column>
+        </LoginContainer>
+      </>
+    )
+  }
 }
 
 export default Login
