@@ -10,6 +10,7 @@ const WidgetColum = styled(Column)`
   overflow: hidden;
   overflow-y: auto;
   max-height: 367px;
+  padding: 5px 0;
 
   /* TODO: remove large and small prop once app is receiving data */
   ${props =>

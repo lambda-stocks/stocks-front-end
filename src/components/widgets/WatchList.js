@@ -3,10 +3,6 @@ import styled from 'styled-components'
 
 import { Widget, WidgetHeading } from '../widgetUtilities'
 
-const WatchlistContainer = styled.div`
-  padding: 5px 0;
-`
-
 const WatchListItems = styled.ul`
   list-style: none;
   padding: 0;
@@ -47,52 +43,50 @@ const CompanyInfo = styled.div`
 const WatchList = () => {
   return (
     <Widget size={4} large={true}>
-      <WatchlistContainer>
-        <WidgetHeading title="Watchlist" hasButton={true} />
+      <WidgetHeading title="Watchlist" hasButton={true} />
 
-        <WatchListItems>
-          <li>
-            <a /*TODO: needs href */>
-              <ListIcon>icon</ListIcon>
-              <CompanyInfo>
-                <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
-              </CompanyInfo>
-            </a>
-          </li>
-          <li>
-            <a>
-              <ListIcon>icon</ListIcon>
-              <CompanyInfo>
-                <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
-              </CompanyInfo>
-            </a>
-          </li>
-          <li>
-            <a>
-              <ListIcon>icon</ListIcon>
-              <CompanyInfo>
-                <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
-              </CompanyInfo>
-            </a>
-          </li>
-          <li>
-            <a>
-              <ListIcon>icon</ListIcon>
-              <CompanyInfo>
-                <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
-              </CompanyInfo>
-            </a>
-          </li>
-          <li>
-            <a>
-              <ListIcon>icon</ListIcon>
-              <CompanyInfo>
-                <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
-              </CompanyInfo>
-            </a>
-          </li>
-        </WatchListItems>
-      </WatchlistContainer>
+      <WatchListItems>
+        <li>
+          <a /*TODO: needs href */>
+            <ListIcon>icon</ListIcon>
+            <CompanyInfo>
+              <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
+            </CompanyInfo>
+          </a>
+        </li>
+        <li>
+          <a>
+            <ListIcon>icon</ListIcon>
+            <CompanyInfo>
+              <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
+            </CompanyInfo>
+          </a>
+        </li>
+        <li>
+          <a>
+            <ListIcon>icon</ListIcon>
+            <CompanyInfo>
+              <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
+            </CompanyInfo>
+          </a>
+        </li>
+        <li>
+          <a>
+            <ListIcon>icon</ListIcon>
+            <CompanyInfo>
+              <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
+            </CompanyInfo>
+          </a>
+        </li>
+        <li>
+          <a>
+            <ListIcon>icon</ListIcon>
+            <CompanyInfo>
+              <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>
+            </CompanyInfo>
+          </a>
+        </li>
+      </WatchListItems>
     </Widget>
   )
 }

@@ -1,0 +1,93 @@
+import React from 'react'
+import styled from 'styled-components'
+
+import { Widget, WidgetHeading } from '../widgetUtilities'
+import Avatar from '../top-navigation/Avatar'
+import placeholderImg1 from '../../images/dp.png'
+import placeholderImg2 from '../../images/2.png'
+
+const Conversations = [
+  {
+    avatar: placeholderImg1,
+    username: 'John Doe',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+
+  {
+    avatar: placeholderImg2,
+    username: 'Jane Doe',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+
+  {
+    avatar: placeholderImg1,
+    username: 'John Doe',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+
+  {
+    avatar: placeholderImg2,
+    username: 'Jane Doe',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  }
+]
+
+const ChatListItems = styled.ul`
+  list-style: none;
+  padding: 0;
+  overflow-y: auto;
+  padding: 0 20px;
+
+  li {
+    display: flex;
+    margin-bottom: 15px;
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+  }
+`
+
+const ChatTextContainer = styled.div`
+  line-height: 20px;
+  margin-left: 10px;
+  width: 85%;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #000;
+  padding: 10px;
+
+  &.reverse {
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  span {
+    display: block;
+    font-weight: 700;
+  }
+`
+
+const Chat = () => {
+  return (
+    <Widget size={4} large={true}>
+      <WidgetHeading title="Watchlist" hasButton={true} />
+
+      <ChatListItems>
+        {Conversations.map(({ avatar, username, text }, index) => {
+          return (
+            <li key={`${username}${Date.now()}`} className={index % 2 !== 0 && 'reverse'}>
+              <Avatar size={4} src={avatar} />
+              <ChatTextContainer className={index % 2 !== 0 && 'reverse'}>
+                <span>{username}</span>
+                {text}
+              </ChatTextContainer>
+            </li>
+          )
+        })}
+      </ChatListItems>
+    </Widget>
+  )
+}
+
+export default Chat

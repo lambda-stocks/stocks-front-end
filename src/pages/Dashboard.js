@@ -5,6 +5,7 @@ import AppLayout from '../components/layouts/AppLayout'
 import { PageHeading } from '../components/utilities'
 import { WidgetWrapper, Widget, WidgetHeading } from '../components/widgetUtilities'
 import WatchList from '../components/widgets/WatchList'
+import Chat from '../components/widgets/Chat'
 
 const Chart = styled.div``
 
@@ -30,11 +31,7 @@ const Dashboard = () => (
         </Chart>
       </Widget>
 
-      <Widget size={3.833} small={true}>
-        <Chart>
-          <WidgetHeading title="Chat" hasButton={true} />
-        </Chart>
-      </Widget>
+      <Chat />
 
       <Widget size={3.833} small={true}>
         <Chart>
