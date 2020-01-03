@@ -15,6 +15,7 @@ const NavBase = styled.nav`
   right: 0;
   background-color: #0e0e30;
   height: 60px;
+  z-index: 999;
 
   .items {
     display: flex;

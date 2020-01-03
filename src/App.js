@@ -46,9 +46,7 @@ const AppWrapper = styled.div`
 
 const App = () => {
   const location = useLocation()
-  const [hideNav, setNavVisibility] = useState(false)
 
-  console.log(location)
   return (
     <AppWrapper>
       <GlobalStyles />
@@ -75,3 +73,4 @@ const App = () => {
 }
 
 export default Auth(App)
+// export default App

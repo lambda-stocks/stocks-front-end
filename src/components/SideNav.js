@@ -22,6 +22,7 @@ const NavContainer = styled.div`
   left: 0;
   background-color: #0e0e30;
   overflow-y: auto;
+  z-index: 999;
 
   a {
     display: block;
