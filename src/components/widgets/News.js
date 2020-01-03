@@ -19,7 +19,7 @@ const News = () => {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=bitcoin&from=2019-12-03&sortBy=publishedAt&apiKey=45c12669899143d4aafda326804d3d1b'
+        'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=45c12669899143d4aafda326804d3d1b'
       )
       .then(res => {
         console.log('news', res.data.articles)
