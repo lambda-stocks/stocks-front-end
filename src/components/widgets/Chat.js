@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Widget, WidgetHeading } from '../widgetUtilities'
+import { Widget, WidgetHeading, WidgetList } from '../widgetUtilities'
 import Avatar from '../top-navigation/Avatar'
 import placeholderImg1 from '../../images/dp.png'
 import placeholderImg2 from '../../images/2.png'
@@ -32,22 +32,6 @@ const Conversations = [
   }
 ]
 
-const ChatListItems = styled.ul`
-  list-style: none;
-  padding: 0;
-  overflow-y: auto;
-  padding: 0 20px;
-
-  li {
-    display: flex;
-    margin-bottom: 15px;
-
-    &.reverse {
-      flex-direction: row-reverse;
-    }
-  }
-`
-
 const ChatTextContainer = styled.div`
   line-height: 20px;
   margin-left: 10px;
@@ -73,7 +57,7 @@ const Chat = () => {
     <Widget size={4} large={true}>
       <WidgetHeading title="Watchlist" hasButton={true} />
 
-      <ChatListItems>
+      <WidgetList>
         {Conversations.map(({ avatar, username, text }, index) => {
           return (
             <li key={`${username}${Date.now()}`} className={index % 2 !== 0 && 'reverse'}>
@@ -85,7 +69,7 @@ const Chat = () => {
             </li>
           )
         })}
-      </ChatListItems>
+      </WidgetList>
     </Widget>
   )
 }

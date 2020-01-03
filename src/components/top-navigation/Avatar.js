@@ -5,6 +5,7 @@ const Img = styled.img`
   width: ${props => props.size * 10}px;
   height: ${props => props.size * 10}px;
   border-radius: 50%;
+  object-fit: cover;
 `
 
 export default Img
