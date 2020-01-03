@@ -3,47 +3,95 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 import Avatar from '../top-navigation/Avatar'
+import { Widget, WidgetHeading, WidgetList } from '../widgetUtilities'
 
-const Article = styled.div`
+const NewsList = styled(WidgetList)`
+  li {
+    font-size: 12px;
+    margin-bottom: 0;
 
-    a{
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    a {
+      display: flex;
       text-decoration: none;
       color: #fff;
+      line-height: 20px;
+      transition: background-color 0.3s ease;
+      padding-top: 10px;
 
+      &:hover {
+        background-color: #3c3c5e;
+      }
+
+      span {
+        text-align: center;
+      }
+
+      h4 {
+        margin: 0;
+        font-weight: 300;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+
+        span {
+          margin: 5px 0 10px;
+        }
+      }
     }
   }
 `
 
 const News = () => {
   const [news, setNews] = useState([])
+
   useEffect(() => {
     axios
       .get(
         'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=45c12669899143d4aafda326804d3d1b'
       )
       .then(res => {
-        console.log('news', res.data.articles)
         setNews(res.data.articles)
       })
       .catch(err => {
         console.error(err)
       })
   }, [])
+
   return (
-    <div>
-      {news &&
-        news.map(data => (
-          <Article key={data.id}>
-            <Avatar className="avatar" size={9} src={data.urlToImage} />
-            <h4>{data.title}</h4>
-            <p>
-              <a href={data.url}>{data.description}</a>
-            </p>
-            <p>{data.publishedAt}</p>
-            <p>{data.author}</p>
-          </Article>
-        ))}
-    </div>
+    <Widget size={3.833} large={true}>
+      <WidgetHeading title="News" />
+      <NewsList>
+        {news &&
+          news.map(({ id, url, title, publishedAt, urlToImage }) => {
+            const date = new Date(publishedAt[0])
+
+            const { day, month, year } = {
+              day: ('0' + date.getDate()).slice(-2),
+              month: date.toLocaleString('en-us', { month: 'short' }),
+              year: date.getFullYear()
+            }
+
+            return (
+              <li key={id}>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <Avatar size={6} src={urlToImage} />
+                  <div>
+                    <h4>{title}</h4>
+                    <span>{`${month} ${day}, ${year}`}</span>
+                  </div>
+                </a>
+              </li>
+            )
+          })}
+      </NewsList>
+    </Widget>
   )
 }
 

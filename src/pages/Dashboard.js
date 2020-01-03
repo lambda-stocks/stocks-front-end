@@ -34,12 +34,7 @@ const Dashboard = () => (
 
       <Chat />
 
-      <Widget size={3.833} small={true}>
-        <Chart>
-          <WidgetHeading title="News" />
-          <News />
-        </Chart>
-      </Widget>
+      <News />
     </WidgetWrapper>
   </AppLayout>
 )
