@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Logo, AccountView } from '../icons'
+import { Logo } from '../icons'
 import SearchBar from './SearchBar'
 import ViewSelector from './ViewSelector'
 import OtherLinks from './OtherLinks'

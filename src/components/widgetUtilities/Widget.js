@@ -1,0 +1,28 @@
+import React from 'react'
+import styled, { css } from 'styled-components'
+
+import Column from '../layouts/Column'
+
+const WidgetColum = styled(Column)`
+  background-color: #4b4b76;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  ${props =>
+    props.large &&
+    css`
+      height: 367px;
+      overflow: hidden;
+      overflow-y: auto;
+    `};
+`
+
+const Widget = ({ size, children, large }) => {
+  return (
+    <WidgetColum size={size} large={large}>
+      {children}
+    </WidgetColum>
+  )
+}
+
+export default Widget

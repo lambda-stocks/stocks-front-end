@@ -2,23 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 
 import AppLayout from '../components/layouts/AppLayout'
-import { PageHeading, WidgetWrapper, Widget } from '../components/utilities'
+import { PageHeading } from '../components/utilities'
+import { WidgetWrapper, Widget } from '../components/widgetUtilities'
+import WatchList from '../components/widgets/WatchList'
 
-const Chart = styled.div`
-  height: 367px;
-`
+const Chart = styled.div``
 
 const Dashboard = () => (
   <AppLayout>
     <PageHeading title="Dashboard" />
     <WidgetWrapper>
-      <Widget size={5}>
+      <Widget size={5} large={true}>
         <Chart>fofofofofo</Chart>
       </Widget>
-      <Widget size={4}>
-        <Chart>fofofofofo</Chart>
-      </Widget>
-      <Widget size={2.5}>
+
+      <WatchList />
+
+      <Widget size={2.5} large={true}>
         <Chart>fofofofofo</Chart>
       </Widget>
     </WidgetWrapper>

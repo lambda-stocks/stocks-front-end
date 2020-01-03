@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const UtilityCss = createGlobalStyle`
-  .mobile-hide {
+  .no-display {
     display: none
   }
 
