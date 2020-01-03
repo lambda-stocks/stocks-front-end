@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 import Column from '../components/layouts/Column'
 import { Image } from '../components/utilities'
@@ -90,16 +91,35 @@ class Login extends Component {
   onSignUp = e => {
     e.preventDefault()
 
+    /* eslint-disable-next-line */
+    const url = `${process.env.REACT_APP_BASE_URL}/api/register`
+
     const { email, name, password } = { ...this.state }
 
     const [firstName, lastName] = name.split(' ')
+
+    const data = {
+      first_name: firstName,
+      last_name: lastName,
+      password,
+      email
+    }
+
+    axios({
+      method: 'post',
+      url,
+      data
+    })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err))
   }
 
   onSignIn = e => {
     e.preventDefault()
 
     const { email, password } = { ...this.state }
-    console.log(email)
   }
 
   render() {
@@ -118,7 +138,7 @@ class Login extends Component {
                 </span>
               </LogoContainer>
 
-              <Thumbnail>Signup</Thumbnail>
+              <Thumbnail>{!switchForm ? <span>Signup</span> : <span>Signin</span>}</Thumbnail>
 
               {!switchForm ? (
                 <SignUpForm

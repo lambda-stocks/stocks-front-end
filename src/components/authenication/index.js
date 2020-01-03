@@ -9,7 +9,7 @@ const Auth = App =>
     }
 
     componentDidMount() {
-      if (!localStorage.getItem('user')) {
+      if (!localStorage.getItem('token')) {
         this.setState({ loggedIn: false })
       } else {
         this.setState({ loggedIn: true })
