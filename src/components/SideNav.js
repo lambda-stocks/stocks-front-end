@@ -51,7 +51,6 @@ const SideNav = ({ location }) => {
     <NavContainer>
       <IconContainer>
         {NavIcons.map(({ icon, href }, index) => {
-          console.log(location, href)
           return (
             <>
               <NavLinks
