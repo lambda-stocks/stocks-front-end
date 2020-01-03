@@ -4,12 +4,16 @@ import BaseCss from './BaseCss'
 import UtilityCss from './UtilityCss'
 import Fonts from './Fonts'
 
-const GlobalStyles = () => (
+const GlobalStyles = ({ bgColor }) => (
   <>
-    <BaseCss />
+    <BaseCss bgColor={bgColor} />
     <UtilityCss />
     <Fonts />
   </>
 )
+
+GlobalStyles.defaultProps = {
+  bgColor: true
+}
 
 export default GlobalStyles

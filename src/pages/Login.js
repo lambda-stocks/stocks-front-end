@@ -150,7 +150,7 @@ class Login extends Component {
 
     return (
       <>
-        <GlobalStyles />
+        <GlobalStyles bgColor={false} />
         <LoginContainer className="animate">
           <Column size={6}>
             <ContentContainer>

@@ -1,5 +1,7 @@
 import React from 'react'
 
-const IndexPage = () => <div>Home</div>
+import AppLayout from '../components/layouts/AppLayout'
+
+const IndexPage = () => <AppLayout>Home</AppLayout>
 
 export default IndexPage
