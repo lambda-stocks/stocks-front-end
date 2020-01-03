@@ -73,4 +73,5 @@ const App = () => {
 }
 
 export default Auth(App)
+// comment above uncomment below to by pass login
 // export default App
