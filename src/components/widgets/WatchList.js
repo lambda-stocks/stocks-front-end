@@ -52,7 +52,7 @@ const WatchList = () => {
 
         <WatchListItems>
           <li>
-            <a>
+            <a /*TODO: needs href */>
               <ListIcon>icon</ListIcon>
               <CompanyInfo>
                 <strong>Snap</strong> (Snapchat, Inc.) <br /> <span>vol. 12,148,409</span>

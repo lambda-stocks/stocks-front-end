@@ -15,11 +15,17 @@ const WidgetColum = styled(Column)`
       overflow: hidden;
       overflow-y: auto;
     `};
+
+  ${props =>
+    props.small &&
+    css`
+      height: 230px;
+    `};
 `
 
-const Widget = ({ size, children, large }) => {
+const Widget = ({ size, children, large, small }) => {
   return (
-    <WidgetColum size={size} large={large}>
+    <WidgetColum size={size} large={large} small={small}>
       {children}
     </WidgetColum>
   )

@@ -9,7 +9,7 @@ const Selected = styled.div`
   justify-content: space-around;
   background-color: #6e6e91;
   height: 32px;
-  width: 81px;
+  padding: 0 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -21,6 +21,7 @@ const Selected = styled.div`
   }
 
   span {
+    margin-left: 10px;
     transition: all 0.3s ease;
   }
 
@@ -47,7 +48,7 @@ const DropDown = styled.ul`
   top: 14px;
   right: 0;
   height: 100px;
-  width: 150px;
+  width: 300px;
   background-color: #6e6e91;
   overflow-y: auto;
   list-style: none;
@@ -68,7 +69,7 @@ const WidgetDropdown = () => {
 
   return (
     <Selected onClick={() => setDropdown(!openDropdown)} openDropdown={openDropdown}>
-      all
+      placeholder
       <span>
         <Chevron />
       </span>
