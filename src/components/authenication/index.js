@@ -17,7 +17,7 @@ const Auth = App =>
     }
     render() {
       if (this.state.loggedIn) return <App />
-      return <LoginPage />
+      else return <LoginPage />
     }
   }
 

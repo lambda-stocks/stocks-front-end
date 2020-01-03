@@ -13,6 +13,9 @@ import { FadeIn } from '../components/Animations'
 import Hero from '../assets/login-hero.jpg'
 import Hero2x from '../assets/login-hero@2x.jpg'
 
+/* eslint-disable-next-line */
+const url = `${process.env.REACT_APP_BASE_URL}/api/register`
+
 const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
@@ -111,7 +114,8 @@ class Login extends Component {
       data
     })
       .then(res => {
-        console.log(res)
+        console.log(res.data)
+        // localStorage.setItem('token', JSON.stringify());
       })
       .catch(err => console.log(err))
   }
@@ -119,7 +123,26 @@ class Login extends Component {
   onSignIn = e => {
     e.preventDefault()
 
+    /* eslint-disable-next-line */
+    const url = `${process.env.REACT_APP_BASE_URL}/api/login`
+
     const { email, password } = { ...this.state }
+
+    const data = {
+      email,
+      password
+    }
+
+    axios({
+      method: 'post',
+      url,
+      data
+    })
+      .then(res => {
+        localStorage.setItem('token', JSON.stringify(res.data.token))
+        window.location.href = '/'
+      })
+      .catch(err => console.log(err))
   }
 
   render() {

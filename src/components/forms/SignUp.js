@@ -11,8 +11,8 @@ const SignUpButton = styled.button`
   background-color: #2358db;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  cursor: pointer;
   margin-top: 15px;
+  cursor: pointer;
 
   &:hover {
     background-color: #4e79e2;
