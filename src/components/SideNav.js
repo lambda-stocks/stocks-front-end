@@ -6,12 +6,12 @@ import NavLinks from './links/NavLinks'
 
 const NavIcons = [
   { icon: <House />, href: '/' },
-  { icon: <Menu />, href: '/' },
+  { icon: <Menu />, href: '/a' },
   { icon: <Clock />, href: '/dashboard' },
-  { icon: <Account />, href: '/' },
-  { icon: <Union />, href: '/' },
-  { icon: <GearIcon />, href: '/' },
-  { icon: <DoubleChevron />, href: '/' }
+  { icon: <Account />, href: '/b' },
+  { icon: <Union />, href: '/c' },
+  { icon: <GearIcon />, href: '/d' },
+  { icon: <DoubleChevron />, href: '/e' }
 ]
 
 const NavContainer = styled.div`
@@ -44,14 +44,19 @@ const IconContainer = styled.div`
   }
 `
 
-const SideNav = () => {
+const SideNav = ({ location }) => {
   return (
     <NavContainer>
       <IconContainer>
         {NavIcons.map(({ icon, href }, index) => {
+          console.log(location, href)
           return (
             <>
-              <NavLinks href={href} key={`${href}${index}`}>
+              <NavLinks
+                href={href}
+                key={`${href}${index}`}
+                className={location === href && 'active'}
+              >
                 {icon}
               </NavLinks>
               {NavIcons.length - 2 === index && (

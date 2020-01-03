@@ -48,12 +48,13 @@ const App = () => {
   const location = useLocation()
   const [hideNav, setNavVisibility] = useState(false)
 
+  console.log(location)
   return (
     <AppWrapper>
       <GlobalStyles />
 
       <div>
-        <SideNav />
+        <SideNav location={location.pathname} />
         <TopNav />
       </div>
 
