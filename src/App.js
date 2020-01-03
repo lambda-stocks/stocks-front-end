@@ -6,7 +6,6 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Auth from './components/authenication'
 import IndexPage from './pages/'
 import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
 import GlobalStyles from './components/base'
 import SideNav from './components/SideNav'
 import TopNav from './components/top-navigation/TopNav'
@@ -63,7 +62,6 @@ const App = () => {
           <CSSTransition key={location.pathname} timeout={500} classNames="fade">
             <div className="page">
               <Switch location={location}>
-                <Route path="/login" component={Login} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/" component={IndexPage} />
               </Switch>

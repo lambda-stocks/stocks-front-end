@@ -26,6 +26,7 @@ const NavBase = styled.nav`
 
   .logo {
     height: 48px;
+    width: 48px;
   }
 
   .center-area {
