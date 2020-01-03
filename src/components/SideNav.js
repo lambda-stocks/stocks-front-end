@@ -27,6 +27,8 @@ const NavContainer = styled.div`
     display: block;
     padding: 20px 0;
     margin: 0 auto 35px;
+    transition: background 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       background-color: #2358db;
