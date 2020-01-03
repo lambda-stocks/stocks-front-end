@@ -63,6 +63,10 @@ const DropDown = styled.ul`
     }
   }
 
+  @media (max-width: 1055px) {
+    height: 215px;
+  }
+
   @media (max-width: 485px) {
     right: -46%;
     height: auto;

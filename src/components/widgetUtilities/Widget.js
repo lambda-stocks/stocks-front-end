@@ -7,13 +7,15 @@ const WidgetColum = styled(Column)`
   background-color: #4b4b76;
   margin-right: 10px;
   margin-bottom: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 367px;
 
+  /* TODO: remove large and small prop once app is receiving data */
   ${props =>
     props.large &&
     css`
       height: 367px;
-      overflow: hidden;
-      overflow-y: auto;
     `};
 
   ${props =>
