@@ -22,8 +22,8 @@ const WidgetColum = styled(Column)`
       height: 230px;
     `};
 
-  @media (max-width: 855px) {
-    display: none;
+  @media (max-width: 1055px) {
+    width: 100%;
   }
 `
 

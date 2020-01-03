@@ -62,6 +62,11 @@ const DropDown = styled.ul`
       background-color: #3c3c5e;
     }
   }
+
+  @media (max-width: 485px) {
+    right: -46%;
+    height: auto;
+  }
 `
 
 const WidgetDropdown = () => {

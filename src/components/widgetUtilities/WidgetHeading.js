@@ -14,6 +14,10 @@ const HeadingContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+
+  @media (max-width: 485px) {
+    flex-direction: column;
+  }
 `
 
 const WidgetHeading = ({ title, hasButton }) => {
