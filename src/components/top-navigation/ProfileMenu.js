@@ -19,6 +19,16 @@ const MenuStyles = styled.div`
   *:not(:last-child) {
     margin-right: 20px;
   }
+
+  @media (max-width: 1055px) {
+    span {
+      display: none;
+    }
+
+    *:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
 `
 
 const ProfileMenu = ({ profileImg, name }) => (

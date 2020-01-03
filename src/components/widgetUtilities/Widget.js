@@ -21,6 +21,10 @@ const WidgetColum = styled(Column)`
     css`
       height: 230px;
     `};
+
+  @media (max-width: 855px) {
+    display: none;
+  }
 `
 
 const Widget = ({ size, children, large, small }) => {

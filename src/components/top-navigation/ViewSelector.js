@@ -10,6 +10,15 @@ const ViewStyles = styled.div`
   & > *:not(:last-child) {
     margin-right: 10px;
   }
+
+  @media (max-width: 1055px) {
+    margin-right: 15px;
+    margin-left: 0;
+
+    span {
+      display: none;
+    }
+  }
 `
 
 const ViewSelector = () => (

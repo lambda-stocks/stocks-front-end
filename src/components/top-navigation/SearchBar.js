@@ -27,6 +27,10 @@ const SearchStyles = styled.div`
       color: #fff;
     }
   }
+
+  @media (max-width: 855px) {
+    display: none;
+  }
 `
 
 const SearchBar = () => (

@@ -28,6 +28,10 @@ const NavBase = styled.nav`
   .logo {
     height: 48px;
     width: 48px;
+
+    @media (max-width: 1055px) {
+      margin-right: auto;
+    }
   }
 
   .center-area {
@@ -35,6 +39,10 @@ const NavBase = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 1055px) {
+      flex-grow: 0;
+    }
   }
 
   .other-menu {
