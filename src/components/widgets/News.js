@@ -28,6 +28,7 @@ const NewsList = styled(WidgetList)`
 
       span {
         text-align: center;
+        opacity: 0.5;
       }
 
       h4 {
@@ -70,7 +71,9 @@ const News = () => {
       <NewsList>
         {news &&
           news.map(({ id, url, title, publishedAt, urlToImage }) => {
-            const date = new Date(publishedAt[0])
+            const date = new Date(publishedAt)
+
+            console.log(publishedAt[0])
 
             const { day, month, year } = {
               day: ('0' + date.getDate()).slice(-2),
