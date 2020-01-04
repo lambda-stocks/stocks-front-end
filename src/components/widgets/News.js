@@ -72,14 +72,8 @@ const News = () => {
         {news &&
           news.map(({ id, url, title, publishedAt, urlToImage }) => {
             const date = new Date(publishedAt)
-
-            console.log(publishedAt[0])
-
-            const { day, month, year } = {
-              day: ('0' + date.getDate()).slice(-2),
-              month: date.toLocaleString('en-us', { month: 'short' }),
-              year: date.getFullYear()
-            }
+            const today = new Date()
+            const day = today.getDay() - ('0' + date.getDate()).slice(-2)
 
             return (
               <li key={id}>
@@ -87,7 +81,7 @@ const News = () => {
                   <Avatar size={6} src={urlToImage} />
                   <div>
                     <h4>{title}</h4>
-                    <span>{`${month} ${day}, ${year}`}</span>
+                    <span>{`${day} days ago`}</span>
                   </div>
                 </a>
               </li>
