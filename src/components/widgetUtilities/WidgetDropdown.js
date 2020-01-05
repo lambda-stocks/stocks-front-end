@@ -63,14 +63,22 @@ const DropDown = styled.ul`
     }
   }
 
-  @media (max-width: 1055px) {
-    height: 215px;
-  }
+  ${({
+    theme: {
+      breakPoints: { large }
+    }
+  }) => large`
+      height: 215px;
+    `}
 
-  @media (max-width: 485px) {
-    right: -46%;
-    height: auto;
-  }
+  ${({
+    theme: {
+      breakPoints: { small }
+    }
+  }) => small`
+      right: -46%;
+      height: auto;
+    `}
 `
 
 const WidgetDropdown = () => {

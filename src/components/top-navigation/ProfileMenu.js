@@ -18,17 +18,18 @@ const MenuStyles = styled.div`
 
   *:not(:last-child) {
     margin-right: 20px;
+    line-height: 20px;
   }
 
-  @media (max-width: 1055px) {
-    span {
-      display: none;
+  ${({
+    theme: {
+      breakPoints: { large }
     }
-
+  }) => large`
     *:not(:last-child) {
       margin-right: 10px;
     }
-  }
+  `}
 `
 
 const ProfileMenu = ({ profileImg, name }) => (

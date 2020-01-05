@@ -114,7 +114,9 @@ class Login extends Component {
       data
     })
       .then(res => {
+        const user = { firstName: res.data.first_name, lastName: res.data.last_name }
         localStorage.setItem('token', JSON.stringify(res.data.token))
+        localStorage.setItem('user', JSON.stringify(user))
         window.location.href = '/'
       })
       .catch(err => console.log(err))
@@ -139,6 +141,8 @@ class Login extends Component {
       data
     })
       .then(res => {
+        const user = { firstName: res.data.first_name, lastName: res.last_name }
+        localStorage.setItem('user', JSON.stringify(user))
         localStorage.setItem('token', JSON.stringify(res.data.token))
         window.location.href = '/'
       })

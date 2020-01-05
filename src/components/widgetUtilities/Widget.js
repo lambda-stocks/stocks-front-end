@@ -17,17 +17,21 @@ const WidgetColum = styled(Column)`
     props.large &&
     css`
       height: 367px;
-    `};
+    `}
 
   ${props =>
     props.small &&
     css`
       height: 230px;
-    `};
+    `}
 
-  @media (max-width: 1055px) {
-    width: 100%;
-  }
+    ${({
+      theme: {
+        breakPoints: { large }
+      }
+    }) => large`
+      width: 100%;
+    `}
 `
 
 const Widget = ({ size, children, large, small }) => {

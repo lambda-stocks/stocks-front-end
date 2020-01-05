@@ -9,16 +9,21 @@ const ViewStyles = styled.div`
 
   & > *:not(:last-child) {
     margin-right: 10px;
+    line-height: 20px;
   }
 
-  @media (max-width: 1055px) {
+  ${({
+    theme: {
+      breakPoints: { large }
+    }
+  }) => large`
     margin-right: 15px;
     margin-left: 0;
 
     span {
       display: none;
     }
-  }
+  `}
 `
 
 const ViewSelector = () => (

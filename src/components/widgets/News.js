@@ -76,7 +76,7 @@ const News = () => {
             const day = today.getDay() - ('0' + date.getDate()).slice(-2)
 
             return (
-              <li key={id}>
+              <li key={url}>
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   <Avatar size={6} src={urlToImage} />
                   <div>

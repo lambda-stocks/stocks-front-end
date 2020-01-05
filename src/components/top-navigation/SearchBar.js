@@ -28,9 +28,13 @@ const SearchStyles = styled.div`
     }
   }
 
-  @media (max-width: 855px) {
+  ${({
+    theme: {
+      breakPoints: { medium }
+    }
+  }) => medium`
     display: none;
-  }
+  `}
 `
 
 const SearchBar = () => (
