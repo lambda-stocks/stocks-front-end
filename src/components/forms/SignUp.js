@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { FormContainer, FormGroup, FormRow, FormInput } from './FormUtilities'
 import { LoginButton as SignUpButton } from '../utilities'
