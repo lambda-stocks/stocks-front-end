@@ -5,9 +5,9 @@ const Fonts = createGlobalStyle`
     font-family: Potra;
     src: ${({
       theme: {
-        fonts: { primaryFont }
+        fonts: { logoFont }
       }
-    }) => `url(${primaryFont}) format('opentype')`};
+    }) => `url(${logoFont}) format('opentype')`};
   }
 `
 
