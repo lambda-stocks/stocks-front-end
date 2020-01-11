@@ -5,8 +5,13 @@ import { Bell, ThreeDots } from '../icons'
 
 const LinkStyles = styled.div`
   display: flex;
-  border-left: 1px solid #dee2ec;
-  border-right: 1px solid #dee2ec;
+  border: ${({
+    theme: {
+      colors: { colorLightGrey }
+    }
+  }) => `1px solid ${colorLightGrey}`};
+  border-top: none;
+  border-bottom: none;
   align-items: stretch;
   height: 100%;
 `
@@ -21,11 +26,19 @@ const MenuItem = styled.div`
   transition: all 0.1s;
 
   &:hover {
-    background-color: #2358db;
+    background-color: ${({
+      theme: {
+        colors: { colorActive }
+      }
+    }) => colorActive};
   }
 
   &:not(:last-child) {
-    border-right: 1px solid #dee2ec;
+    border-right: ${({
+      theme: {
+        colors: { colorLightGrey }
+      }
+    }) => `1px solid ${colorLightGrey}`};
   }
 `
 
