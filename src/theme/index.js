@@ -13,7 +13,7 @@ import {
   colorPrimaryHover
 } from './Colors'
 
-import logoFont from '../fonts/Potra.otf'
+import { fontLogo } from './Fonts'
 
 const DefaultTheme = {
   breakPoints: Media,
@@ -30,7 +30,7 @@ const DefaultTheme = {
     colorPrimaryHover
   },
   fonts: {
-    logoFont
+    fontLogo
   }
 }
 

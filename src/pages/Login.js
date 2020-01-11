@@ -44,9 +44,14 @@ const LogoContainer = styled.div`
   span {
     margin-top: -15px;
     text-transform: uppercase;
-    color: black;
+
     font-size: 10px;
     font-weight: 700;
+    color: ${({
+      theme: {
+        colors: { colorBlack }
+      }
+    }) => colorBlack};
 
     span {
       color: ${({
