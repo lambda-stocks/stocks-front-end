@@ -13,6 +13,8 @@ import {
   colorPrimaryHover
 } from './Colors'
 
+import primaryFont from '../fonts/Potra.otf'
+
 const DefaultTheme = {
   breakPoints: Media,
   colors: {
@@ -26,6 +28,9 @@ const DefaultTheme = {
     colorLightGrey,
     colorMedGrey,
     colorPrimaryHover
+  },
+  fonts: {
+    primaryFont
   }
 }
 
