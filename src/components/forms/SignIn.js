@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FormContainer, FormGroup, FormRow, FormInput } from './FormUtilities'
-import { LoginButton as SignUpButton } from '../utilities'
+import { LoginButton as SignInButton } from '../utilities'
 
 const SignUp = ({ email, password, handleInput, onSignIn }) => {
   return (
@@ -41,7 +41,7 @@ const SignUp = ({ email, password, handleInput, onSignIn }) => {
           </FormGroup>
         </FormRow>
 
-        <SignUpButton type="submit">sign in</SignUpButton>
+        <SignInButton type="submit">sign in</SignInButton>
       </form>
     </FormContainer>
   )
