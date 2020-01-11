@@ -1,13 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
+import Potra from '../../fonts/Potra.otf'
+
 const Fonts = createGlobalStyle`
   @font-face {
     font-family: Potra;
-    src: ${({
-      theme: {
-        fonts: { logoFont }
-      }
-    }) => `url(${logoFont}) format('opentype')`};
+    src: url(${Potra}) format('opentype');
   }
 `
 

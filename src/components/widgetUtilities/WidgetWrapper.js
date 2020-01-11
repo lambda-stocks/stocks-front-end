@@ -5,13 +5,9 @@ const WidgetWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 15px;
 
-  ${({
-    theme: {
-      breakPoints: { large }
-    }
-  }) => large`
-      display: block;
-    `}
+  @media (max-width: 1055px) {
+    display: block;
+  }
 `
 
 export default WidgetWrapper

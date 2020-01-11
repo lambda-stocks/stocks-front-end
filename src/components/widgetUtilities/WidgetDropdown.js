@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import { lighten } from 'polished'
 
 import { Chevron } from '../icons'
 import { FadeIn } from '../Animations'
@@ -8,6 +7,7 @@ import { FadeIn } from '../Animations'
 const Selected = styled.div`
   display: flex;
   justify-content: space-around;
+  background-color: #6e6e91;
   height: 32px;
   padding: 0 10px;
   cursor: pointer;
@@ -15,18 +15,9 @@ const Selected = styled.div`
   text-transform: uppercase;
   border-radius: 2px;
   position: relative;
-  background-color: ${({
-    theme: {
-      colors: { colorPrimaryLight }
-    }
-  }) => `${lighten(0.15, colorPrimaryLight)}`};
 
   &:hover {
-    background-color: ${({
-      theme: {
-        colors: { colorPrimaryHover }
-      }
-    }) => colorPrimaryHover};
+    background-color: #3c3c5e;
   }
 
   span {
@@ -38,11 +29,7 @@ const Selected = styled.div`
     props.openDropdown &&
     css`
       &:hover {
-        background-color: ${({
-          theme: {
-            colors: { colorPrimaryHover }
-          }
-        }) => colorPrimaryHover};
+        background-color: #6e6e91;
       }
 
       span {
@@ -60,47 +47,30 @@ const DropDown = styled.ul`
   position: absolute;
   top: 14px;
   right: 0;
-  height: auto;
+  height: 100px;
   width: 300px;
+  background-color: #6e6e91;
   overflow-y: auto;
   list-style: none;
   padding: 0;
   text-transform: none;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.14);
-  background-color: ${({
-    theme: {
-      colors: { colorPrimaryMed }
-    }
-  }) => colorPrimaryMed};
 
   li {
     text-align: center;
 
     &:hover {
-      background-color: ${({
-        theme: {
-          colors: { colorPrimaryHover }
-        }
-      }) => colorPrimaryHover};
+      background-color: #3c3c5e;
     }
   }
 
-  ${({
-    theme: {
-      breakPoints: { large }
-    }
-  }) => large`
-      height: 215px;
-    `}
+  @media (max-width: 1055px) {
+    height: 215px;
+  }
 
-  ${({
-    theme: {
-      breakPoints: { small }
-    }
-  }) => small`
-      right: -46%;
-      height: auto;
-    `}
+  @media (max-width: 485px) {
+    right: -46%;
+    height: auto;
+  }
 `
 
 const WidgetDropdown = () => {

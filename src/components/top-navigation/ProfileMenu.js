@@ -13,27 +13,22 @@ const MenuStyles = styled.div`
   transition: all 0.1s;
 
   &:hover {
-    background-color: ${({
-      theme: {
-        colors: { colorActive }
-      }
-    }) => colorActive};
+    background-color: #2358db;
   }
 
   *:not(:last-child) {
     margin-right: 20px;
-    line-height: 20px;
   }
 
-  ${({
-    theme: {
-      breakPoints: { large }
+  @media (max-width: 1055px) {
+    span {
+      display: none;
     }
-  }) => large`
+
     *:not(:last-child) {
       margin-right: 10px;
     }
-  `}
+  }
 `
 
 const ProfileMenu = ({ profileImg, name }) => (

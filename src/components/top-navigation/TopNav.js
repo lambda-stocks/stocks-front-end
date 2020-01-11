@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { isEmpty } from 'lodash'
-
 import { Link } from 'react-router-dom'
 import { Logo } from '../icons'
 import SearchBar from './SearchBar'
@@ -15,13 +13,9 @@ const NavBase = styled.nav`
   top: 0;
   left: 0;
   right: 0;
+  background-color: #0e0e30;
   height: 60px;
   z-index: 999;
-  background-color: ${({
-    theme: {
-      colors: { colorPrimary }
-    }
-  }) => colorPrimary};
 
   .items {
     display: flex;
@@ -35,13 +29,9 @@ const NavBase = styled.nav`
     height: 48px;
     width: 48px;
 
-    ${({
-      theme: {
-        breakPoints: { large }
-      }
-    }) => large`
+    @media (max-width: 1055px) {
       margin-right: auto;
-    `}
+    }
   }
 
   .center-area {
@@ -50,13 +40,9 @@ const NavBase = styled.nav`
     justify-content: space-around;
     align-items: center;
 
-    ${({
-      theme: {
-        breakPoints: { large }
-      }
-    }) => large`
+    @media (max-width: 1055px) {
       flex-grow: 0;
-    `}
+    }
   }
 
   .other-menu {
@@ -65,35 +51,22 @@ const NavBase = styled.nav`
   }
 `
 
-const TopNav = () => {
-  const [user, setUser] = useState({})
-
-  useEffect(() => {
-    let user = localStorage.getItem('user') ? localStorage.getItem('user') : null
-    user = JSON.parse(user)
-    setUser(user)
-  }, [])
-
-  return (
-    <NavBase>
-      <div className="items">
-        <Link to="/" className="logo">
-          <Logo />
-        </Link>
-        <div className="center-area">
-          <SearchBar />
-          <ViewSelector />
-        </div>
-        <div className="other-menu">
-          <OtherLinks />
-          <ProfileMenu
-            profileImg={placeholderImg}
-            name={!isEmpty(user) ? `${user.firstName} ${user.lastName}` : ''}
-          />
-        </div>
+const TopNav = () => (
+  <NavBase>
+    <div className="items">
+      <Link to="/" className="logo">
+        <Logo />
+      </Link>
+      <div className="center-area">
+        <SearchBar />
+        <ViewSelector />
       </div>
-    </NavBase>
-  )
-}
+      <div className="other-menu">
+        <OtherLinks />
+        <ProfileMenu profileImg={placeholderImg} name="Max Harris" />
+      </div>
+    </div>
+  </NavBase>
+)
 
 export default TopNav

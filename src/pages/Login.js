@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import { lighten } from 'polished'
 
 import Column from '../components/layouts/Column'
 import { Image } from '../components/utilities'
@@ -49,25 +48,17 @@ const LogoContainer = styled.div`
     font-weight: 700;
 
     span {
-      color: ${({
-        theme: {
-          colors: { colorSecondary }
-        }
-      }) => colorSecondary};
+      color: #e95e00;
     }
   }
 `
 
 const Thumbnail = styled.span`
   font-size: 29px;
+  color: #000;
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-bottom: 25px;
-  color: ${({
-    theme: {
-      colors: { colorBlack }
-    }
-  }) => colorBlack};
 `
 
 const HeroContainer = styled.div`
@@ -79,22 +70,14 @@ const HeroContainer = styled.div`
 `
 
 const AccountLoginButton = styled.div`
+  color: #e95e00;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   font-size: 12px;
-  color: ${({
-    theme: {
-      colors: { colorSecondary }
-    }
-  }) => colorSecondary};
 
   &:hover {
-    color: ${({
-      theme: {
-        colors: { colorSecondary }
-      }
-    }) => `${lighten(0.3, colorSecondary)}`};
+    color: #ef8e4c;
   }
 `
 
@@ -131,9 +114,7 @@ class Login extends Component {
       data
     })
       .then(res => {
-        const user = { firstName: res.data.first_name, lastName: res.data.last_name }
         localStorage.setItem('token', JSON.stringify(res.data.token))
-        localStorage.setItem('user', JSON.stringify(user))
         window.location.href = '/'
       })
       .catch(err => console.log(err))
@@ -158,10 +139,7 @@ class Login extends Component {
       data
     })
       .then(res => {
-        console.log(res.data)
-        const user = { firstName: res.data.first_name, lastName: res.data.last_name }
         localStorage.setItem('token', JSON.stringify(res.data.token))
-        localStorage.setItem('user', JSON.stringify(user))
         window.location.href = '/'
       })
       .catch(err => console.log(err))
