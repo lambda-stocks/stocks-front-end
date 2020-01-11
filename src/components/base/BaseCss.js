@@ -12,8 +12,19 @@ const BaseCss = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 30px;
-    color: #fff;
-    ${props => (props.bgColor ? 'background-color: #1f1f54' : 'background-color: #fff')};
+
+    ${({
+      theme: {
+        colors: { colorWhite }
+      }
+    }) => `color: ${colorWhite}`};
+
+    ${({
+      bgColor,
+      theme: {
+        colors: { colorWhite, colorPrimaryMed }
+      }
+    }) => (bgColor ? `background-color: ${colorPrimaryMed}` : `background-color: ${colorWhite}`)};
   }
 `
 

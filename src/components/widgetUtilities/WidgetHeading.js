@@ -15,9 +15,13 @@ const HeadingContainer = styled.div`
   align-items: center;
   margin-bottom: 10px;
 
-  @media (max-width: 485px) {
-    flex-direction: column;
-  }
+  ${({
+    theme: {
+      breakPoints: { small }
+    }
+  }) => small`
+      flex-direction: column;
+    `}
 `
 
 const WidgetHeading = ({ title, hasButton }) => {
