@@ -4,13 +4,9 @@ import { FadeIn } from '../Animations'
 
 export const FormContainer = styled.div`
   width: 100%;
+  background-color: #f4f4f4;
   padding-top: 40px;
   margin-bottom: 10px;
-  background-color: ${({
-    theme: {
-      colors: { colorLightGrey }
-    }
-  }) => colorLightGrey};
 
   &.animate {
     animation: ${FadeIn} 0.5s ease-in;
@@ -46,7 +42,9 @@ export const FormGroup = styled.div`
 export const FormInput = styled.input`
   width: 80%;
   background-color: transparent;
+  border-bottom: 2px solid #000;
   border-radius: 0.25em;
+  color: #e95e00;
   order: 1;
   padding: 10px 0;
   display: block;
@@ -55,52 +53,25 @@ export const FormInput = styled.input`
   border-left: none;
   border-radius: 0;
   transition: all 0.3s ease-out;
-  color: ${({
-    theme: {
-      colors: { colorSecondary }
-    }
-  }) => colorSecondary};
-
-  border-bottom: ${({
-    theme: {
-      colors: { colorBlack }
-    }
-  }) => `2px solid ${colorBlack}`};
 
   &::-webkit-input-placeholder {
     font-size: 10px;
+    color: #e95e00;
     text-transform: uppercase;
-    color: ${({
-      theme: {
-        colors: { colorSecondary }
-      }
-    }) => colorSecondary};
   }
 
   &::-moz-placeholder {
     font-size: 10px;
+    color: #e95e00;
     text-transform: uppercase;
-    color: ${({
-      theme: {
-        colors: { colorSecondary }
-      }
-    }) => colorSecondary};
   }
 
   &:focus {
     outline: 0;
-    border-bottom: ${({
-      theme: {
-        colors: { colorMedGrey }
-      }
-    }) => `2px solid ${colorMedGrey};`};
+    border-bottom: 2px solid #cccccc;
   }
 
   &:hover {
-    border-bottom: ${({
-      theme: {
-        colors: { colorMedGrey }
-      }
-    }) => `2px solid ${colorMedGrey};`};
+    border-bottom: 2px solid #cccccc;
   }
 `

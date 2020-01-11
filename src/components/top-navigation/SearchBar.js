@@ -20,29 +20,17 @@ const SearchStyles = styled.div`
 
     &:focus {
       outline: none;
-      border-bottom-color: ${({
-        theme: {
-          colors: { colorWhite }
-        }
-      }) => colorWhite};
+      border-bottom-color: #fff;
     }
 
     &::placeholder {
-      color: ${({
-        theme: {
-          colors: { colorWhite }
-        }
-      }) => colorWhite};
+      color: #fff;
     }
   }
 
-  ${({
-    theme: {
-      breakPoints: { medium }
-    }
-  }) => medium`
+  @media (max-width: 855px) {
     display: none;
-  `}
+  }
 `
 
 const SearchBar = () => (

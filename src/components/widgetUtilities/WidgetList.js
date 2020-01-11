@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { darken } from 'polished'
 
 const WidgetList = styled.ul`
   list-style: none;
@@ -9,40 +8,10 @@ const WidgetList = styled.ul`
 
   li {
     display: flex;
-    border-bottom: ${({
-      theme: {
-        colors: { colorWhite }
-      }
-    }) => `1px solid ${darken(0.3, colorWhite)}`};
-
-    &:first-child {
-      border-top: ${({
-        theme: {
-          colors: { colorWhite }
-        }
-      }) => `1px solid ${darken(0.3, colorWhite)}`};
-    }
+    margin-bottom: 15px;
 
     &.reverse {
       flex-direction: row-reverse;
-    }
-
-    a {
-      transition: background-color 0.3s ease;
-      padding: 10px 20px;
-      color: ${({
-        theme: {
-          colors: { colorWhite }
-        }
-      }) => colorWhite};
-
-      &:hover {
-        background-color: ${({
-          theme: {
-            colors: { colorPrimaryHover }
-          }
-        }) => colorPrimaryHover};
-      }
     }
   }
 `
