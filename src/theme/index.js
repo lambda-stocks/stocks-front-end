@@ -11,7 +11,7 @@ import {
   colorLightGrey,
   colorMedGrey,
   colorPrimaryHover
-} from './Color'
+} from './Colors'
 
 const DefaultTheme = {
   breakPoints: Media,
