@@ -15,9 +15,13 @@ const NavBase = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  background-color: #0e0e30;
   height: 60px;
   z-index: 999;
+  background-color: ${({
+    theme: {
+      colors: { colorPrimary }
+    }
+  }) => colorPrimary};
 
   .items {
     display: flex;

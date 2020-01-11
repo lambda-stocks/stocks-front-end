@@ -40,10 +40,19 @@ const ChatTextContainer = styled.div`
   line-height: 20px;
   margin-left: 10px;
   width: 85%;
-  background-color: #fff;
   border-radius: 5px;
-  color: #000;
   padding: 10px;
+  background-color: ${({
+    theme: {
+      colors: { colorWhite }
+    }
+  }) => colorWhite};
+
+  color: ${({
+    theme: {
+      colors: { colorBlack }
+    }
+  }) => colorBlack};
 
   &.reverse {
     margin-right: 10px;

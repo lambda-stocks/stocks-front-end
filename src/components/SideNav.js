@@ -20,9 +20,13 @@ const NavContainer = styled.div`
   height: calc(100vh - 60px);
   top: 60px;
   left: 0;
-  background-color: #0e0e30;
   overflow-y: auto;
   z-index: 999;
+  background-color: ${({
+    theme: {
+      colors: { colorPrimary }
+    }
+  }) => colorPrimary};
 
   a {
     display: block;
@@ -32,7 +36,11 @@ const NavContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: #2358db;
+      background-color: ${({
+        theme: {
+          colors: { colorActive }
+        }
+      }) => colorActive};
     }
   }
 `

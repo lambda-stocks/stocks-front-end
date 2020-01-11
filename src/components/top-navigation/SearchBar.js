@@ -20,11 +20,19 @@ const SearchStyles = styled.div`
 
     &:focus {
       outline: none;
-      border-bottom-color: #fff;
+      border-bottom-color: ${({
+        theme: {
+          colors: { colorWhite }
+        }
+      }) => colorWhite};
     }
 
     &::placeholder {
-      color: #fff;
+      color: ${({
+        theme: {
+          colors: { colorWhite }
+        }
+      }) => colorWhite};
     }
   }
 

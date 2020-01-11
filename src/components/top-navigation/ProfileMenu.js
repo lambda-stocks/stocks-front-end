@@ -13,7 +13,11 @@ const MenuStyles = styled.div`
   transition: all 0.1s;
 
   &:hover {
-    background-color: #2358db;
+    background-color: ${({
+      theme: {
+        colors: { colorActive }
+      }
+    }) => colorActive};
   }
 
   *:not(:last-child) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Auth from './components/authenication'
@@ -9,7 +9,6 @@ import Dashboard from './pages/Dashboard'
 import GlobalStyles from './components/base'
 import SideNav from './components/SideNav'
 import TopNav from './components/top-navigation/TopNav'
-import theme from './theme'
 
 const AppWrapper = styled.div`
   .page {
@@ -48,32 +47,28 @@ const AppWrapper = styled.div`
 const App = () => {
   const location = useLocation()
 
-  console.log(theme)
-
   return (
-    <ThemeProvider theme={theme}>
-      <AppWrapper>
-        <GlobalStyles />
+    <AppWrapper>
+      <GlobalStyles />
 
-        <div>
-          <SideNav location={location.pathname} />
-          <TopNav />
-        </div>
+      <div>
+        <SideNav location={location.pathname} />
+        <TopNav />
+      </div>
 
-        <div className="relative">
-          <TransitionGroup>
-            <CSSTransition key={location.pathname} timeout={500} classNames="fade">
-              <div className="page">
-                <Switch location={location}>
-                  <Route path="/dashboard" component={Dashboard} />
-                  <Route path="/" component={IndexPage} />
-                </Switch>
-              </div>
-            </CSSTransition>
-          </TransitionGroup>
-        </div>
-      </AppWrapper>
-    </ThemeProvider>
+      <div className="relative">
+        <TransitionGroup>
+          <CSSTransition key={location.pathname} timeout={500} classNames="fade">
+            <div className="page">
+              <Switch location={location}>
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/" component={IndexPage} />
+              </Switch>
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
+    </AppWrapper>
   )
 }
 
