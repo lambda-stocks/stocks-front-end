@@ -6,25 +6,17 @@ import Avatar from '../top-navigation/Avatar'
 import { Widget, WidgetHeading, WidgetList } from '../widgetUtilities'
 
 const NewsList = styled(WidgetList)`
+  padding: 0;
+
   li {
     font-size: 12px;
     margin-bottom: 0;
 
-    &:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
     a {
       display: flex;
       text-decoration: none;
-      color: #fff;
       line-height: 20px;
-      transition: background-color 0.3s ease;
-      padding-top: 10px;
-
-      &:hover {
-        background-color: #3c3c5e;
-      }
+    }
 
       span {
         text-align: center;
@@ -70,13 +62,13 @@ const News = () => {
       <WidgetHeading title="News" />
       <NewsList>
         {news &&
-          news.map(({ id, url, title, publishedAt, urlToImage }) => {
+          news.map(({ url, title, publishedAt, urlToImage }) => {
             const date = new Date(publishedAt)
             const today = new Date()
             const day = today.getDay() - ('0' + date.getDate()).slice(-2)
 
             return (
-              <li key={id}>
+              <li key={url}>
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   <Avatar size={6} src={urlToImage} />
                   <div>

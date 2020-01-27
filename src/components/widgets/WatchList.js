@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Widget, WidgetHeading } from '../widgetUtilities'
+import { Widget, WidgetHeading, WidgetList } from '../widgetUtilities'
 
-const WatchListItems = styled.ul`
+const WatchListItems = styled(WidgetList)`
   list-style: none;
   padding: 0;
   overflow-y: auto;
@@ -16,18 +16,6 @@ const WatchListItems = styled.ul`
     a {
       width: 100%;
       display: flex;
-      align-items: baseline;
-      padding: 10px 0 10px 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: #3c3c5e;
-      }
-    }
-
-    &:not(:first-child) {
-      border-top: 2px solid #3c3c5e;
     }
   }
 `

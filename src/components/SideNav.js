@@ -5,13 +5,13 @@ import { House, Menu, Clock, Union, GearIcon, Account, DoubleChevron } from './i
 import NavLinks from './links/NavLinks'
 
 const NavIcons = [
-  { icon: <House />, href: '/' },
-  { icon: <Menu />, href: '/a' },
-  { icon: <Clock />, href: '/dashboard' },
-  { icon: <Account />, href: '/b' },
-  { icon: <Union />, href: '/c' },
-  { icon: <GearIcon />, href: '/d' },
-  { icon: <DoubleChevron />, href: '/e' }
+  { id: 0, icon: <House />, href: '/' },
+  { id: 1, icon: <Menu />, href: '/a' },
+  { id: 2, icon: <Clock />, href: '/dashboard' },
+  { id: 3, icon: <Account />, href: '/b' },
+  { id: 4, icon: <Union />, href: '/c' },
+  { id: 5, icon: <GearIcon />, href: '/d' },
+  { id: 6, icon: <DoubleChevron />, href: '/e' }
 ]
 
 const NavContainer = styled.div`
@@ -20,9 +20,13 @@ const NavContainer = styled.div`
   height: calc(100vh - 60px);
   top: 60px;
   left: 0;
-  background-color: #0e0e30;
   overflow-y: auto;
   z-index: 999;
+  background-color: ${({
+    theme: {
+      colors: { colorPrimary }
+    }
+  }) => colorPrimary};
 
   a {
     display: block;
@@ -32,7 +36,11 @@ const NavContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: #2358db;
+      background-color: ${({
+        theme: {
+          colors: { colorActive }
+        }
+      }) => colorActive};
     }
   }
 `
@@ -51,20 +59,16 @@ const SideNav = ({ location }) => {
   return (
     <NavContainer>
       <IconContainer>
-        {NavIcons.map(({ icon, href }, index) => {
+        {NavIcons.map(({ icon, href, id }, index) => {
           return (
-            <>
-              <NavLinks
-                href={href}
-                key={`${href}${index}`}
-                className={location === href && 'active'}
-              >
+            <div key={`${id}${href}${index}`}>
+              <NavLinks href={href} className={location === href ? 'active' : ''}>
                 {icon}
               </NavLinks>
               {NavIcons.length - 2 === index && (
                 <hr style={{ width: '38px', marginBottom: '35px', color: '#fff' }} />
               )}
-            </>
+            </div>
           )
         })}
       </IconContainer>

@@ -8,24 +8,28 @@ import placeholderImg2 from '../../images/2.png'
 
 const Conversations = [
   {
+    id: 0,
     avatar: placeholderImg1,
     username: 'John Doe',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
 
   {
+    id: 1,
     avatar: placeholderImg2,
     username: 'Jane Doe',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
 
   {
+    id: 2,
     avatar: placeholderImg1,
     username: 'John Doe',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   },
 
   {
+    id: 3,
     avatar: placeholderImg2,
     username: 'Jane Doe',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
@@ -36,10 +40,19 @@ const ChatTextContainer = styled.div`
   line-height: 20px;
   margin-left: 10px;
   width: 85%;
-  background-color: #fff;
   border-radius: 5px;
-  color: #000;
   padding: 10px;
+  background-color: ${({
+    theme: {
+      colors: { colorWhite }
+    }
+  }) => colorWhite};
+
+  color: ${({
+    theme: {
+      colors: { colorBlack }
+    }
+  }) => colorBlack};
 
   &.reverse {
     margin-right: 10px;
@@ -58,11 +71,11 @@ const Chat = () => {
       <WidgetHeading title="Watchlist" hasButton={true} />
 
       <WidgetList>
-        {Conversations.map(({ avatar, username, text }, index) => {
+        {Conversations.map(({ avatar, username, text, id }, index) => {
           return (
-            <li key={`${username}${Date.now()}`} className={index % 2 !== 0 && 'reverse'}>
+            <li key={id} className={index % 2 !== 0 ? 'reverse' : ''}>
               <Avatar size={4} src={avatar} />
-              <ChatTextContainer className={index % 2 !== 0 && 'reverse'}>
+              <ChatTextContainer className={index % 2 !== 0 ? 'reverse' : ''}>
                 <span>{username}</span>
                 {text}
               </ChatTextContainer>

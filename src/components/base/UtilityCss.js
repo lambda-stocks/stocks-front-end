@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { lighten } from 'polished'
 
 const UtilityCss = createGlobalStyle`
   .no-display {
@@ -7,7 +8,11 @@ const UtilityCss = createGlobalStyle`
 
   .active {
     position: relative;
-    background-color: #2358db;
+    background-color: ${({
+      theme: {
+        colors: { colorActive }
+      }
+    }) => colorActive};
 
     &::after {
       content: '';
@@ -16,7 +21,11 @@ const UtilityCss = createGlobalStyle`
       width: 4px;
       height: 100%;
       position: absolute;
-      background: #7FA6FD;
+      background: ${({
+        theme: {
+          colors: { colorPrimary }
+        }
+      }) => lighten(0.7, colorPrimary)};
     }
   }
 `
